@@ -8,6 +8,7 @@ Nadarajah, R., Wahab, A., Reynolds, C., et al. (2023). *Future Innovations in No
 
 ## Summary & Analysis
 
+
 ### Background / Motivation
 Atrial fibrillation (AF) is a common cardiac arrhythmia associated with increased risk of ischemic stroke, heart failure, and mortality. Many AF cases remain clinically silent until a stroke or other event occurs.  
 
