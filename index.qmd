@@ -1,102 +1,236 @@
-# Paper Review: FIND-AF Pilot Study
-
-## Selected Paper for Review
-Nadarajah, R., Wahab, A., Reynolds, C., et al. (2023). *Future Innovations in Novel Detection for Atrial Fibrillation (FIND-AF): pilot study of an electronic health record machine learning algorithm-guided intervention to identify undiagnosed atrial fibrillation.* Open Heart.  
-(Details and performance metrics summarized from Alhumaidi et al., 2025).
-
+---
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-## Summary & Analysis
+# WEEK 1 - LITERATURE REVIEW
 
+## Machine Learning for Analyzing Real-World Data in Disease Prediction and Management
 
-### Background / Motivation
-Atrial fibrillation (AF) is a common cardiac arrhythmia associated with increased risk of ischemic stroke, heart failure, and mortality. Many AF cases remain clinically silent until a stroke or other event occurs.  
+### BACKGROUND / MOTIVATION :
 
-Traditional opportunistic screening (pulse checks, ECGs when symptomatic) underdetects AF, while population-scale systematic screening faces cost and logistical barriers.  
+The integration of machine learning (ML) with real-world data (RWD) has
+emerged as one of the most transformative developments in modern
+healthcare. Traditional clinical trials, while regarded as the gold
+standard for evaluating interventions, are inherently limited by their
+controlled settings, strict eligibility criteria, and relatively small
+sample sizes. In contrast, RWD—derived from electronic health records
+(EHRs), patient registries, claims data, and increasingly wearable
+health devices—captures patient experiences in routine care. This makes
+it more representative of diverse populations and thus more relevant for
+informing clinical practice. The reviewed article situates itself in
+this context, recognizing that the healthcare industry is experiencing
+an urgent demand for predictive and personalized solutions driven by the
+exponential growth of healthcare data.
 
-The reviewed paper (**FIND-AF**) explores leveraging routinely collected **electronic health record (EHR)** data with **machine learning (ML)** to identify patients at high risk of undiagnosed AF and direct them into targeted diagnostic pathways (e.g., ambulatory ECG monitoring).  
+. The central problem identified in the paper lies in the gap between
+the availability of massive, heterogeneous health datasets and the
+effective use of these datasets for disease prediction and management.
+While ML algorithms have shown potential in controlled research
+contexts, their application to messy, incomplete, and unstandardized RWD
+remains underexplored. Moreover, the integration of ML into real-world
+clinical workflows is hindered by challenges such as poor data quality,
+lack of model interpretability, limited generalizability, and ethical
+concerns regarding privacy and bias.
 
-Unlike many ML studies that stop at retrospective validation, FIND-AF focuses on **real-world implementation** — embedding an EHR-based ML model into primary care workflows and assessing both predictive performance and downstream clinical/economic impacts.
+. This systematic review attempts to address this gap by synthesizing
+evidence from recent clinical trials and cohort studies (2014–2024) that
+applied ML to RWD. In doing so, it seeks to identify both the progress
+and persistent obstacles in this evolving field. The significance of the
+research question is multifold. First, the global burden of chronic
+diseases such as cardiovascular disease, diabetes, and cancer demands
+more effective predictive tools to enable earlier diagnosis and
+intervention. ML applied to RWD can potentially stratify patients by
+risk, tailor treatments to individuals, and improve overall health
+outcomes. Second, healthcare systems worldwide are under increasing
+strain from rising costs and aging populations. Efficient predictive
+modeling can reduce unnecessary interventions, optimize resource
+allocation, and improve cost-effectiveness. Finally, regulators such as
+the U.S. Food and Drug Administration (FDA) and the European Medicines
+Agency (EMA) are beginning to formally recognize the role of real-world
+evidence (RWE) in evaluating therapies. This raises the stakes for
+ensuring that ML-driven insights derived from RWD are robust,
+interpretable, and ethically sound.
 
----
+In sum, the paper positions itself at the intersection of urgent
+healthcare challenges and technological opportunity. By systematically
+reviewing the landscape of ML applications to RWD, the authors aim not
+only to catalog methodological advances but also to spotlight critical
+barriers—particularly data quality, fairness, and regulatory
+frameworks—that must be addressed to unlock the full potential of ML in
+precision medicine and healthcare management.
 
-### Methods Used
+### METHODS USED
 
-**Study design and setting**  
+The review followed the PRISMA (Preferred Reporting Items for Systematic
+Reviews and Meta-Analyses) guidelines, ensuring methodological rigor and
+transparency. The authors applied clear inclusion and exclusion criteria
+to focus on clinical trials and cohort studies that employed ML
+techniques on real-world health data for disease prediction or
+management.
 
-- Pilot intervention in routine primary care.  
-- ML model applied to EHR data to generate risk scores for undiagnosed AF.  
-- Flagged patients offered diagnostic testing (e.g., short-term ECG monitoring).  
-- Evaluation included algorithmic performance, clinical workflow feasibility, and cost-effectiveness.  
+Importantly, the scope was deliberately limited to peer-reviewed studies
+in English published between 2014 and 2024, reflecting the most recent
+advances in both ML and healthcare analytics. The information sources
+included major biomedical and clinical databases such as PubMed, Scopus,
+Web of Science, and the Cochrane Library. To capture gray literature,
+Google Scholar was also searched, and manual reference checks were
+performed. This multi-source approach increased the comprehensiveness of
+the review. The search strategy was carefully constructed with Boolean
+operators and Medical Subject Headings (MeSH), combining terms related
+to ML (“machine learning,” “deep learning,” “artificial intelligence”),
+clinical study designs (“randomized controlled trial,” “pragmatic
+trial,” “cohort study”), and healthcare outcomes (“disease prediction,”
+“management,” “outcomes”).
 
-**Data and features**  
-- Structured EHR features: demographics, diagnoses, medications, vitals, and historical clinical codes.  
-- Features capture longitudinal risk markers (e.g., age, hypertension, prior stroke, heart failure).  
+**Logistic regression**: $$
+P(y=1|x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p)}}
+$$
 
-**Modeling approach**  
-- Ensemble gradient boosting (commonly XGBoost in similar pipelines).  
-- AUROC ≈ **0.824 (95% CI 0.814–0.834)** → strong discrimination.  
-- Model outputs guided prospective screening.  
+$$
+\hat{y} = 
+\begin{cases}
+1 & \text{if } P(y=1|x) \geq 0.5 \\
+0 & \text{otherwise}
+\end{cases}
+$$ **Support Vector Machine**: $$
+f(x) = \text{sign}(w^T x + b)
+$$
 
-**Implementation & evaluation**  
-- Steps: flagging → diagnostic testing → new diagnoses → cost-effectiveness assessment.  
-- Metrics: AUROC, diagnostic yield, number needed to screen, incremental cost per diagnosis/QALY.  
+$$
+\min_{w, b} \; \frac{1}{2} \|w\|^2 \quad \text{s.t.} \quad y_i (w^T x_i + b) \geq 1 \; \forall i
+$$
 
-**Suitability and innovations**  
-- Gradient boosting provides strong predictive performance with deployable efficiency.  
-- Embedding into workflows goes beyond accuracy reporting.  
-- Combined assessment of accuracy, implementation, and economics is **translational** and innovative.
+$$
+\min_{w, b, \xi} \; \frac{1}{2} \|w\|^2 + C \sum_i \xi_i
+$$
 
----
+The study selection process was conducted in two stages: initial title
+and abstract screening, followed by full-text review by independent
+reviewers. Discrepancies were resolved through discussion and, when
+necessary, a third reviewer. This rigorous screening reduced the initial
+pool of over 11,000 records to 57 eligible studies. Data extraction was
+standardized and included study design, disease category, type of RWD,
+ML methodology, performance metrics (e.g., accuracy, sensitivity,
+specificity, AUROC), and reported challenges.
 
-### Significance of the Work
+The methodological contribution of this review lies in its systematic
+comparison of diverse ML algorithms across multiple disease domains.
+Algorithms analyzed included random forest (42% of studies), logistic
+regression (37%), support vector machines (32%), XGBoost (21%),
+artificial neural networks (19%), and decision trees (16%), among
+others. The review also documented novel techniques, such as deep neural
+networks and natural language processing (NLP) applied to unstructured
+EHR text, which represent cutting-edge approaches in the field.
+Furthermore, the categorization of studies by disease type
+(cardiovascular, cancer, neurological, infectious, etc.) and by RWE
+source (EHRs, patient registries, wearable devices) provided a
+structured framework to assess methodological breadth.
 
-**Key findings and contributions**  
-- EHR-based ML can identify undiagnosed AF risk with **good discrimination (AUROC ≈ 0.82)**.  
-- Algorithm-guided diagnostic testing in primary care is **feasible**.  
-- Contributions include: implementation lessons, diagnostic yield estimates, and economic evaluation.  
+| Diseases                  | Studies, n (%) |
+|---------------------------|----------------|
+| Cardiovascular diseases   | 19 (33)        |
+| Cancers and tumors        | 9 (16)         |
+| Neurological diseases     | 6 (11)         |
+| Infectious diseases       | 5 (9)          |
+| Metabolic diseases        | 5 (9)          |
+| Spinal diseases           | 3 (5)          |
+| Gastrointestinal diseases | 2 (4)          |
+| Ocular diseases           | 2 (4)          |
+| Respiratory diseases      | 2 (4)          |
+| Other diseases            | 4 (7)          |
 
-**Why results matter**  
-- Shows how ML can transition from research to practice.  
-- Uses widely available EHR data, integrates into workflows, and evaluates **clinical + economic outcomes**.  
-- If scaled, could enable earlier AF detection → timely anticoagulation → reduced stroke incidence.  
+Overall, the methods employed are well suited to the research question.
+By restricting the scope to clinical trials and cohort studies using
+RWD, the review highlights real-world applicability rather than
+hypothetical or simulation-based models. The PRISMA framework enhances
+replicability, while the inclusion of performance metrics allows for
+comparative evaluation of ML approaches. The innovative integration of
+gray literature and regulatory documents further strengthens the
+analysis, positioning this review as a comprehensive map of the current
+landscape of ML in real-world healthcare.
 
-**Implications for practice and research**  
-- Policymakers gain evidence for cost-effective ML-guided case finding.  
-- Researchers are reminded of:  
-  - External validation across EHR systems.  
-  - Importance of interpretability for clinicians.  
-  - Monitoring downstream resource impacts (e.g., ECG demand).  
+### SIGNIFICANCE OF THE WORK
 
----
+The findings of the review underscore the substantial but uneven
+progress of ML in real-world disease prediction and management. The
+synthesis of 57 studies reveals several key contributions. First, ML
+methods—particularly ensemble approaches like random forest and gradient
+boosting—demonstrated strong predictive performance across diverse
+disease areas. For example, random forest models achieved an AUROC of
+0.85 in cardiovascular disease prediction, while support vector machines
+reached 83% accuracy in cancer prognosis.
 
-### Connection to Other Work
-- FIND-AF fits within the broader literature on **ML for case finding** (AF, diabetes, heart failure).  
-- Differs from prior work by piloting **real-world deployment** rather than stopping at retrospective validation.  
-- Resonates with critiques of “accuracy-only” ML by emphasizing **workflow integration and downstream impact**.  
-- Extends literature on EHR phenotyping, fairness in ML, and explainability (e.g., SHAP, generalizability across sites).  
+Such results highlight the potential of ML to outperform or at least
+complement traditional statistical models in clinical decision-making.
+Second, the review provides valuable insights into the distribution of
+applications. Cardiovascular diseases dominated the field (33% of
+studies), followed by cancer (16%) and neurological conditions (11%).
+This distribution reflects the urgent clinical need for predictive tools
+in high-burden diseases. Importantly, the review also shows that EHRs
+are the most common source of RWD (68%), with patient registries (26%)
+and wearable devices (7%) contributing less but offering novel
+opportunities for continuous and real-time monitoring.
 
----
+Third, the review identifies four major application areas: disease
+prediction (35% of studies), clinical decision-making (25%), healthcare
+outcomes such as quality of life (23%), and survival prediction (19%).
+This taxonomy illustrates that ML is not only being used for diagnosis
+but also for optimizing treatment strategies, monitoring patient
+well-being, and forecasting long-term outcomes—critical dimensions for
+precision medicine.
 
-### Relevance to Capstone Project
-For a capstone on ML with real-world EHR data and translational deployment, FIND-AF offers a blueprint:  
+The broader significance lies in the recognition of persistent
+challenges. Approximately 60% of reviewed studies struggled with data
+quality issues, lack of interpretability, and limited generalizability
+across diverse patient populations. These limitations are particularly
+problematic given the ethical stakes of deploying ML in healthcare. The
+paper highlights emerging solutions such as fairness-aware algorithms,
+interpretability frameworks like SHAP and LIME, and evolving regulatory
+guidelines from the FDA and EMA. Yet, it makes clear that more progress
+is needed to achieve equitable and transparent ML applications.
 
-- **Methodological replication**: Build an XGBoost model on local EHR data.  
-- **Explainability**: Add SHAP/LIME and test clinician-facing explanations.  
-- **Fairness**: Audit subgroup performance (age, sex, ethnicity) and mitigate bias.  
-- **Implementation research**: Pilot a “flag → test” workflow, measuring yield and acceptance.  
-- **Health-economic modeling**: Extend cost-effectiveness analysis with local data.  
+In the context of the broader field, this work contributes by
+synthesizing a fragmented body of literature into a coherent overview.
+Unlike prior reviews that focused narrowly on EHRs or specific diseases,
+this study spans multiple conditions, data sources, and algorithm types.
+It also distinguishes itself by emphasizing regulatory and ethical
+frameworks, an increasingly critical dimension of digital health
+research. By identifying both the promise and pitfalls of current
+practices, the review provides a roadmap for future research and policy
+development. In conclusion, the significance of this work lies not only
+in cataloging ML applications but also in clarifying the path forward.
+By bridging technical, clinical, and regulatory perspectives, the review
+underscores that the future of ML in healthcare will depend on
+addressing transparency, fairness, and generalizability while harnessing
+the predictive power of advanced algorithms. This synthesis is therefore
+highly valuable for clinicians, data scientists, and policymakers alike.
 
-**Potential deliverables**:  
-- Replication & validation pipeline.  
-- Clinician usability study of interpretability.  
-- Fairness audit & mitigation plan.  
-- Implementation protocol with pre-post diagnostic yield evaluation.  
+### REFERENCES
 
----
+1.  Liu F, Panagiotakos D. Real-world data: a brief review of the
+    methods, applications, challenges and opportunities. BMC Med Res
+    Methodol. Nov 05, 2022;22(1):287. \[FREE Full text\] \[doi:
+    10.1186/s12874-022-01768-6\] \[Medline: 36335315\]
+2.  Dang A. Real-world evidence: a primer. Pharmaceut Med. Jan
+    2023;37(1):25-36. \[FREE Full text\] \[doi:
+    10.1007/s40290-022-00456-6\] \[Medline: 36604368\]
+3.  Klonoff DC. The expanding role of real-world evidence trials in
+    health care decision making. J Diabetes Sci Technol. Jan
+    2020;14(1):174-179. \[FREE Full text\] \[doi:
+    10.1177/1932296819832653\] \[Medline: 30841738\]
+4.  Junaid SB, Imam AA, Balogun AO, De Silva LC, Surakat Y A, Kumar G,
+    et al. Recent advancements in emerging technologies for healthcare
+    management systems: a survey. Healthcare (Basel). Oct 03,
+    2022;10(10):1940. \[FREE Full text\] \[doi:
+    10.3390/healthcare10101940\] \[Medline: 36292387\]
+5.  Williamson SM, Prybutok V . Balancing privacy and progress: a review
+    of privacy challenges, systemic oversight, and
+6.  patient perceptions in AI-driven healthcare. Appl Sci. Jan 12,
+    2024;14(2):675. \[doi: 10.3390/app14020675\] Derman BA, Belli AJ,
+    Battiwalla M, Hamadani M, Kansagra A, Lazarus HM, et al.
 
-## References (APA)
-
-Alhumaidi, N. H., Dermawan, D., Kamaruzaman, H. F., & Alotaiq, N. (2025). The use of machine learning for analyzing real-world data in disease prediction and management: Systematic review. *JMIR Medical Informatics, 13,* e68898.  
-
-Nadarajah, R., Wahab, A., Reynolds, C., et al. (2023). Future Innovations in Novel Detection for Atrial Fibrillation (FIND-AF): pilot study of an electronic health record machine learning algorithm-guided intervention to identify undiagnosed atrial fibrillation. *Open Heart.*  
+::: {align="right"}
+Madhu Kiran Reddy Koduru
+:::
