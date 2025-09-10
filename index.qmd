@@ -23,6 +23,7 @@ Unlike many ML studies that stop at retrospective validation, FIND-AF focuses on
 ### Methods Used
 
 **Study design and setting**  
+
 - Pilot intervention in routine primary care.  
 - ML model applied to EHR data to generate risk scores for undiagnosed AF.  
 - Flagged patients offered diagnostic testing (e.g., short-term ECG monitoring).  
