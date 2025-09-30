@@ -75,81 +75,201 @@ window.Quarto = {
 
 
 
-<section id="week-2---literature-review" class="level1">
-<h1>WEEK 2 - LITERATURE REVIEW</h1>
-<section id="a-systematic-review-of-clinical-health-conditions-predicted-by-machine-learning-diagnostic-and-prognostic-models-trained-or-validated-using-real-world-primary-health-care-data" class="level2">
-<h2 class="anchored" data-anchor-id="a-systematic-review-of-clinical-health-conditions-predicted-by-machine-learning-diagnostic-and-prognostic-models-trained-or-validated-using-real-world-primary-health-care-data">A systematic review of clinical health conditions predicted by machine learning diagnostic and prognostic models trained or validated using real-world primary health care data</h2>
-<section id="background-motivation" class="level3">
-<h3 class="anchored" data-anchor-id="background-motivation">BACKGROUND / MOTIVATION :</h3>
-<p>The integration of machine learning (ML) into healthcare has been one of the most significant developments of the past decade. As healthcare systems generate massive amounts of electronic health records (EHRs), insurance claims data, and wearable sensor data, there is an increasing interest in using ML models for disease prediction, risk stratification, and prognosis.</p>
-<p>However, most prior ML research has relied heavily on hospital datasets or controlled trial data. These data sources, while high quality, do not capture the everyday experiences of patients in primary health care (PHC), where most chronic conditions such as diabetes, hypertension, and cardiovascular disease are first diagnosed and managed. This creates a major gap: if ML models are trained primarily on tertiary hospital data, they may not generalize to real-world PHC environments.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-2850644566.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p>The significance of Abdulazeem et al.’s (2023) paper lies in its systematic review of studies that specifically trained or validated ML models using PHC data. By analyzing 106 studies covering more than 24 million participants, the authors shed light on both the progress and shortcomings of ML in real-world disease management. This is crucial as healthcare moves toward more personalized, predictive, and preventive approaches.</p>
+<section id="week-5---capstone-proposal" class="level1">
+<h1>WEEK 5 - CAPSTONE PROPOSAL</h1>
+<section id="team-list-all-teammates-or-state-that-you-are-working-independently." class="level3">
+<h3 class="anchored" data-anchor-id="team-list-all-teammates-or-state-that-you-are-working-independently.">Team: List all teammates (or state that you are working independently).</h3>
+<p>I will work on my project individually.</p>
 </section>
-<section id="methods-used" class="level3">
-<h3 class="anchored" data-anchor-id="methods-used">METHODS USED</h3>
-<p>The authors employed a systematic review methodology following PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) guidelines, ensuring transparency and replicability. They searched multiple databases including PubMed, Cochrane, Elsevier, Web of Science, IEEE Xplore, ACM, and preprint servers such as bioRxiv.</p>
-<p>This broad search strategy ensured the inclusion of both clinical and computational literature. Inclusion criteria required that studies must use real-world PHC data and apply ML models for either diagnostic or prognostic purposes. Exclusion criteria filtered out simulation-only studies and those using purely hospital datasets. The final pool of 106 eligible studies spanned 42 health conditions, with 207 unique ML models evaluated. The authors categorized the studies by disease type (e.g., diabetes, Alzheimer’s, cardiovascular), by model type (e.g., logistic regression, random forests, support vector machines, neural networks), and by validation strategy (internal cross-validation vs.&nbsp;external validation).</p>
-<p>A major methodological innovation was the use of the PROBAST tool (Prediction model Risk Of Bias Assessment Tool) to evaluate the methodological quality of the included studies. This allowed the authors to move beyond reporting performance metrics to critically assess generalizability and potential bias.</p>
-<p><strong>Performance Metrics</strong></p>
-<p>Accuracy:<br>
-<span class="math display">\[ Accuracy = \frac{TP + TN}{TP + TN + FP + FN} \]</span></p>
-<p>Precision (Positive Predictive Value):<br>
-<span class="math display">\[ Precision = \frac{TP}{TP + FP} \]</span></p>
-<p>Recall (Sensitivity):<br>
-<span class="math display">\[ Recall = \frac{TP}{TP + FN} \]</span></p>
-<p>Specificity:<br>
-<span class="math display">\[ Specificity = \frac{TN}{TN + FP} \]</span></p>
-<p>F1 Score:<br>
-<span class="math display">\[ F_1 = 2 \times \frac{Precision \times Recall}{Precision + Recall} \]</span></p>
-<p>AUROC (Area Under ROC Curve):<br>
-<span class="math display">\[ AUROC = \int_{0}^{1} TPR(FPR^{-1}(x)) \, dx \]</span></p>
-<hr>
-<p><strong>Cross-Validation Performance Estimate</strong></p>
-<p><span class="math display">\[ \hat{E}_{CV} = \frac{1}{k} \sum_{i=1}^{k} E_i \]</span></p>
-<hr>
-<p><strong>PROBAST Risk of Bias Scoring</strong></p>
-<p><span class="math display">\[ RiskScore = \sum_{j=1}^{m} w_j \cdot I(bias_j) \]</span></p>
-<p>where<br>
-- (m) = number of bias domains (participants, predictors, outcomes, analysis)<br>
-- (I(bias_j)) = indicator if bias present<br>
-- (w_j) = weight for domain (j)</p>
+<section id="topic-describe-the-research-problem-you-will-focus-on-for-the-remainder-of-the-semester." class="level3">
+<h3 class="anchored" data-anchor-id="topic-describe-the-research-problem-you-will-focus-on-for-the-remainder-of-the-semester.">Topic: Describe the research problem you will focus on for the remainder of the semester.</h3>
+<p><strong>Data Visualization:</strong> Techniques for representing data graphically to aid understanding and decision making.</p>
 </section>
-<section id="significance-of-the-work" class="level3">
-<h3 class="anchored" data-anchor-id="significance-of-the-work">SIGNIFICANCE OF THE WORK</h3>
-<p>The findings of the review are highly significant. Diabetes mellitus was the most frequently studied health condition (21 studies, 19.8%), followed by Alzheimer’s disease (12 studies, 11.3%), cardiovascular diseases (9 studies, 8.5%), hypertension (7 studies, 6.6%), and chronic respiratory diseases (6 studies, 5.7%). These patterns reflect the global burden of chronic diseases in PHC. In terms of methodology, logistic regression and random forests remained the most widely used models, but there was also significant exploration of support vector machines, gradient boosting, and deep neural networks. Importantly, while many models demonstrated promising predictive accuracy (AUROC scores often above 0.80), the majority of studies lacked external validation, limiting their applicability in practice. One of the most striking findings was that 90.8% of the included studies were judged to be at high or unclear risk of bias. This suggests that although ML shows potential in PHC, methodological weaknesses currently limit its clinical utility. The review underscores the urgent need for more robust validation and fairness-aware algorithms to ensure equitable deployment.</p>
+<section id="methods-detail-the-mathematicalstatistical-methods-you-will-use.-be-as-specific-as-possiblethis-is-the-core-of-your-capstone." class="level3">
+<h3 class="anchored" data-anchor-id="methods-detail-the-mathematicalstatistical-methods-you-will-use.-be-as-specific-as-possiblethis-is-the-core-of-your-capstone.">Methods: Detail the mathematical/statistical methods you will use. Be as specific as possible—this is the core of your capstone.</h3>
 </section>
-<section id="connection-to-work" class="level3">
-<h3 class="anchored" data-anchor-id="connection-to-work">CONNECTION TO WORK</h3>
-<p>This paper builds upon and differs from previous literature in meaningful ways. Earlier reviews on ML in healthcare primarily focused on hospital-based EHRs or specific disease categories. For example, prior systematic reviews often limited their scope to oncology or cardiology, overlooking the diversity of conditions seen in PHC. By contrast, Abdulazeem et al.&nbsp;(2023) covered 42 different conditions, offering a broader view. The study also connects with the growing body of literature on real-world evidence (RWE). Regulatory bodies such as the U.S. FDA and EMA have increasingly acknowledged the role of RWE in medical decision-making. By demonstrating both the potential and pitfalls of ML applied to RWE in PHC, this review provides critical context for policymakers and regulators. The authors cited several seminal works on fairness, interpretability, and ethics in ML, highlighting frameworks such as SHAP and LIME for model interpretability. This positions their review not just as a catalog of studies but as a roadmap linking technical, clinical, and ethical perspectives.</p>
-</section>
-<section id="relevance-to-capstone-project" class="level3">
-<h3 class="anchored" data-anchor-id="relevance-to-capstone-project">RELEVANCE TO CAPSTONE PROJECT</h3>
-<p>The paper is directly relevant to the anticipated capstone project, which also aims to explore machine learning applications in disease prediction and management using real-world data. Several aspects of this study inform the capstone design:</p>
+<section id="methodology" class="level3">
+<h3 class="anchored" data-anchor-id="methodology">Methodology</h3>
+<section id="research-design" class="level4">
+<h4 class="anchored" data-anchor-id="research-design">1. Research Design</h4>
+<p>This capstone adopts a <strong>mixed-methods approach</strong>, combining statistical rigor with practical interpretability. The methodology is divided into three stages:</p>
 <ol type="1">
-<li><p>It highlights commonly used algorithms (logistic regression, random forests, neural networks) that could be applied to capstone datasets.</p></li>
-<li><p>It identifies limitations (lack of external validation, bias, interpretability issues) that the capstone project can aim to address.</p></li>
-<li><p>It emphasizes the importance of chronic conditions such as diabetes and cardiovascular disease, which may align with the capstone’s focus areas.</p></li>
-<li><p>It demonstrates the value of rigorous evaluation frameworks (AUROC, sensitivity, specificity, PROBAST) that the capstone can adopt.</p></li>
+<li><strong>Data Collection and Preprocessing</strong></li>
+<li><strong>Application of Visualization Techniques</strong> (grounded in mathematical/statistical principles)</li>
+<li><strong>Evaluation and Interpretation</strong></li>
 </ol>
-<p>By incorporating these insights, the capstone project could contribute by developing more interpretable models, integrating fairness constraints, or validating models across diverse patient subgroups. This would build upon the gaps identified in Abdulazeem et al.&nbsp;(2023) while moving the field forward.</p>
+<p>This structure ensures that visualization methods are both mathematically valid and practically useful for decision making.</p>
+<hr>
+</section>
+<section id="data-sources-and-preparation" class="level4">
+<h4 class="anchored" data-anchor-id="data-sources-and-preparation">2. Data Sources and Preparation</h4>
+<p>Data will be obtained from open repositories such as Kaggle and World Bank datasets. The preprocessing steps include:</p>
+<ul>
+<li><p><strong>Handling Missing Data</strong>: Mean/median imputation or multiple imputation.</p></li>
+<li><p><strong>Normalization</strong>:</p></li>
+</ul>
+<p><span class="math display">\[x' = \frac{x - \min(x)}{\max(x) - \min(x)}\]</span></p>
+<ul>
+<li><strong>Standardization</strong>:</li>
+</ul>
+<p><span class="math display">\[z = \frac{x - \mu}{\sigma}\]</span> where <span class="math inline">\(\mu\)</span> is the mean and <span class="math inline">\(\sigma\)</span> the standard deviation.</p>
+<ul>
+<li><p><strong>Dimensionality Reduction (PCA)</strong>: Given a data matrix (X), PCA is computed by eigenvalue decomposition of the covariance matrix:</p>
+<p><span class="math display">\[C = \frac{1}{n-1}X^TX\]</span></p>
+<p>Eigenvectors of (C) provide principal components, and eigenvalues indicate explained variance.</p></li>
+</ul>
+<hr>
+</section>
+<section id="visualization-techniques-and-statistical-methods" class="level4">
+<h4 class="anchored" data-anchor-id="visualization-techniques-and-statistical-methods">3. Visualization Techniques and Statistical Methods</h4>
+<p>Visualization techniques will be selected based on data type and analytical goal. Each visualization is tied to a statistical foundation.</p>
+<p><strong>3.1 Univariate Visualizations</strong></p>
+<ul>
+<li><p><strong>Histogram</strong>: A histogram estimates the probability density function using bins. For bin width (h),</p>
+<p><span class="math display">\[\hat{f}(x) = \frac{1}{nh} \sum_{i=1}^{n} K\left(\frac{x - x_i}{h}\right)\]</span> where <span class="math inline">\(K\)</span> is a kernel (commonly uniform or Gaussian).</p></li>
+<li><p><strong>Boxplot</strong>: Represents quartiles. Interquartile range (IQR):</p></li>
+</ul>
+<p><span class="math display">\[\text{IQR} = Q_3 - Q_1\]</span></p>
+<hr>
+<p><strong>3.2 Bivariate and Multivariate Visualizations</strong></p>
+<ul>
+<li><p><strong>Scatterplot with Regression Line</strong>: The regression line is based on the least squares estimate:</p>
+<p><span class="math display">\[\hat{y} = \beta_0 + \beta_1 x\]</span> with coefficients: <span class="math display">\[\beta_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}\]</span> <span class="math display">\[\beta_0 = \bar{y} - \beta_1 \bar{x}\]</span></p></li>
+<li><p><strong>Correlation Heatmap</strong>: Correlation coefficient (Pearson):</p></li>
+</ul>
+<p><span class="math display">\[r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}\]</span></p>
+<p><em>Table 1: Example Correlation Matrix</em></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Var1</th>
+<th>Var2</th>
+<th>Var3</th>
+<th>Var4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Var1</td>
+<td>1</td>
+<td>0.72</td>
+<td>0.35</td>
+<td>-0.14</td>
+</tr>
+<tr class="even">
+<td>Var2</td>
+<td>0.72</td>
+<td>1</td>
+<td>0.48</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>Var3</td>
+<td>0.35</td>
+<td>0.48</td>
+<td>1</td>
+<td>-0.30</td>
+</tr>
+<tr class="even">
+<td>Var4</td>
+<td>-0.14</td>
+<td>0.05</td>
+<td>-0.30</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>3.3 Predictive and Inferential Visualizations</strong></p>
+<p>ROC Curve:</p>
+<p>True Positive Rate (TPR) and False Positive Rate (FPR): <span class="math display">\[TPR = \frac{TP}{TP+FN}, \quad FPR = \frac{FP}{FP+TN}\]</span></p>
+<p>Area Under the Curve (AUC):</p>
+<p><span class="math display">\[AUC = \int_0^1 TPR(FPR^{-1}(x)) dx\]</span> Confidence Interval Plot: For mean <span class="math inline">\(\bar{x}\)</span>: <span class="math display">\[CI = \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\]</span></p>
+<hr>
+</section>
+<section id="evaluation-criteria" class="level4">
+<h4 class="anchored" data-anchor-id="evaluation-criteria">4. Evaluation Criteria</h4>
+<p>The effectiveness of visualizations will be assessed based on:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 28%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Measurement Method</th>
+<th>Example Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Statistical Accuracy</td>
+<td>Error measures</td>
+<td>RMSE, AUC</td>
+</tr>
+<tr class="even">
+<td>Interpretability</td>
+<td>User studies</td>
+<td>% correct interpretations</td>
+</tr>
+<tr class="odd">
+<td>Decision-Making Impact</td>
+<td>Simulated scenarios</td>
+<td>Time to decision, accuracy</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="ethical-considerations" class="level4">
+<h4 class="anchored" data-anchor-id="ethical-considerations">5. Ethical Considerations</h4>
+<p>Visualizations will follow ethical standards by avoiding misleading scales, selective data inclusion, and ambiguous color schemes. Transparency in preprocessing will be documented.</p>
+<hr>
+</section>
+<section id="summary" class="level4">
+<h4 class="anchored" data-anchor-id="summary">6. Summary</h4>
+<p>This methodology integrates mathematical/statistical rigor with practical visualization design. By embedding formulas, structured evaluation, and reproducible methods, the project ensures visualization techniques are not only visually appealing but also statistically sound and decision-focused.</p>
+</section>
+</section>
+<section id="programming-state-your-preferred-programming-languages." class="level3">
+<h3 class="anchored" data-anchor-id="programming-state-your-preferred-programming-languages.">Programming: State your preferred programming language(s).</h3>
+<p><strong>Tools and Software</strong></p>
+<ul>
+<li><strong>Python</strong>: Matplotlib, Seaborn, Plotly, Bokeh</li>
+<li><strong>R</strong>: ggplot2, Shiny, tidyverse</li>
+<li><strong>Tableau/Power BI</strong>: For applied dashboards</li>
+</ul>
+</section>
+<section id="data-list-the-datasets-you-currently-have-name-source-size-key-variables-and-how-you-will-accessuse-them." class="level3">
+<h3 class="anchored" data-anchor-id="data-list-the-datasets-you-currently-have-name-source-size-key-variables-and-how-you-will-accessuse-them.">Data: List the dataset(s) you currently have (name, source, size, key variables, and how you will access/use them).</h3>
+<p><strong>1. Diabetes Dataset</strong> Name: Pima Indians Diabetes Database Source: UCI Machine Learning Repository / Kaggle Size: 768 observations, 9 variables Key Variables: Independent: Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes Pedigree Function, Age Dependent: Outcome (0 = No Diabetes, 1 = Diabetes) Access/Use: The dataset will be downloaded in CSV format from Kaggle. It will be used to demonstrate classification visualizations such as ROC curves, histograms, and boxplots for medical decision support.</p>
+<p><strong>2. World Development Indicators (WDI)</strong> Name: World Bank Development Indicators Source: World Bank Open Data (https://data.worldbank.org) Size: Over 200 countries × 50+ years of data × 200+ indicators Key Variables: GDP per capita, Literacy Rate, Life Expectancy, Population Growth, Internet Users Access/Use: Accessed via the World Bank API. This dataset will support time-series visualizations, correlation plots, and comparative bar/line charts for global development analysis.</p>
+<p><strong>3. Titanic Dataset</strong> Name: Titanic Passenger Survival Data Source: Kaggle (Titanic: Machine Learning from Disaster) Size: 891 observations, 12 variables Key Variables: Independent: Passenger Class, Sex, Age, Fare, Embarked, SibSp, Parch Dependent: Survival (0 = Did Not Survive, 1 = Survived) Access/Use: Downloaded in CSV format from Kaggle. This dataset will be used for categorical visualization techniques such as bar charts, mosaic plots, and logistic regression scatterplots.</p>
+</section>
+<section id="references-provide-potential-references-tentative-is-fine." class="level3">
+<h3 class="anchored" data-anchor-id="references-provide-potential-references-tentative-is-fine.">References: Provide potential references (tentative is fine).</h3>
 </section>
 <section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">REFERENCES</h3>
+<h3 class="anchored" data-anchor-id="references">References</h3>
 <ol type="1">
-<li>Abdulazeem, H., Whitelaw, S., Schauberger, G., &amp; Klug, S. J. (2023). A systematic review of clinical health conditions predicted by machine learning diagnostic and prognostic models trained or validated using real-world primary health care data. PLOS ONE, 18(9), e0274276. https://doi.org/10.1371/journal.pone.0274276</li>
-<li>Klonoff DC. The expanding role of real-world evidence trials in health care decision making. J Diabetes Sci Technol. Jan 2020;14(1):174-179. [FREE Full text] [doi: 10.1177/1932296819832653] [Medline: 30841738]</li>
-<li>Junaid SB, Imam AA, Balogun AO, De Silva LC, Surakat Y A, Kumar G, et al.&nbsp;Recent advancements in emerging technologies for healthcare management systems: a survey. Healthcare (Basel). Oct 03, 2022;10(10):1940. [FREE Full text] [doi: 10.3390/healthcare10101940] [Medline: 36292387]</li>
-<li>Williamson SM, Prybutok V . Balancing privacy and progress: a review of privacy challenges, systemic oversight, and</li>
+<li><p>Cleveland, W. S. (1993). <em>Visualizing Data</em>. Hobart Press.</p></li>
+<li><p>Tufte, E. R. (2001). <em>The Visual Display of Quantitative Information</em> (2nd ed.). Graphics Press.</p></li>
+<li><p>Friendly, M. (2008). A Brief History of Data Visualization. In <em>Handbook of Data Visualization</em> (pp.&nbsp;15–56). Springer. <a href="https://doi.org/10.1007/978-3-540-33037-0_2">https://doi.org/10.1007/978-3-540-33037-0_2</a></p></li>
+<li><p>Few, S. (2012). <em>Show Me the Numbers: Designing Tables and Graphs to Enlighten</em>. Analytics Press.</p></li>
+<li><p>Wickham, H. (2016). <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer. <a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a></p></li>
+<li><p>Han, J., Kamber, M., &amp; Pei, J. (2012). <em>Data Mining: Concepts and Techniques</em> (3rd ed.). Morgan Kaufmann.</p></li>
+<li><p>Fawcett, T. (2006). An Introduction to ROC Analysis. <em>Pattern Recognition Letters</em>, 27(8), 861–874. <a href="https://doi.org/10.1016/j.patrec.2005.10.010">https://doi.org/10.1016/j.patrec.2005.10.010</a></p></li>
+<li><p>Kaggle. (2016). Titanic: Machine Learning from Disaster. <a href="https://www.kaggle.com/c/titanic">https://www.kaggle.com/c/titanic</a></p></li>
+<li><p>UCI Machine Learning Repository. (1990). Pima Indians Diabetes Database. <a href="https://archive.ics.uci.edu/ml/datasets/diabetes">https://archive.ics.uci.edu/ml/datasets/diabetes</a></p></li>
+<li><p>World Bank. (2023). World Development Indicators. <a href="https://data.worldbank.org/indicator">https://data.worldbank.org/indicator</a></p></li>
+<li><p>Shneiderman, B. (1996). The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations. *Proceedings 1996 IEEE Symposium on Visual Lang</p></li>
 </ol>
 <div data-align="right">
 <p>Madhu Kiran Reddy Koduru</p>
 </div>
-</section>
 </section>
 </section>
 
