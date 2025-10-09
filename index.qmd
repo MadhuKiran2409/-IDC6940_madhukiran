@@ -1,219 +1,101 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
+# CAPSTONE PROJECT
 
-# WEEK 5 - CAPSTONE PROPOSAL
+## Machine Learning and Predictive Analytics for Heart Disease Prediction
 
-### Team: List all teammates (or state that you are working independently).
+### Introduction
 
-I will work on my project individually.
+#### Problem Defination
 
-### Topic: Describe the research problem you will focus on for the remainder of the semester.
+Heart disease is still one of the worst public health crises worldwide. The World Health Organization (WHO) reports that cardiovascular diseases claim approximately 17.9 million lives each year, which is almost one-third of all deaths on the planet. Despite tremendous advances in medicine, detection of heart disease at its early stage continues to be an issue. Interpretation by doctors of medical data such as ECG readings forms the cornerstone of traditional diagnosis, cholesterol level, and patient history, which in certain instances can lead to inconsistent or delayed conclusions.
 
-**Data Visualization:** Techniques for representing data graphically to
-aid understanding and decision making.
+In the last couple of years, the emergence of data science and machine learning has opened up new avenues to solve this problem. Machine learning algorithms have provided promising results in identifying patterns in medical data that are not apparent to the human eye. Predictive analytics can be used to forecast the risk of a patient developing heart disease based on multiple indicators. This can help health professionals with early identification, preventive measures, and resource planning. The main problem addressed in this research is how to build and evaluate a reliable machine learning model that can predict heart disease from patient health data with high accuracy and interpretability#### What problem or gap in the existing literature does the paper aim to address?
 
-### Methods: Detail the mathematical/statistical methods you will use. Be as specific as possible—this is the core of your capstone.
+This study aims to address the systematic evaluation of explainability techniques in predictive process analytics, which has been recognized as an open problem. While the literature is such that quite a number of papers exist that are concerned with the improving predictive models or proposing new XAI methods, no standard evaluation frameworks have been developed to evaluate the methods in terms of reliability, stability, and fidelity. This study develops functionally-grounded evaluation metrics for measuring stability and fidelity of explanations produced by some of the popular XAI methods, namely LIME and SHAP, as well as checks whether these methods deliver consistent and faithful explanations for predictive process models constructed using XGBoost, a widely employed machine learning algorithm known for its high classification accuracy.
 
-### Methodology
+#### Context and Background
 
-#### 1. Research Design
+Predictive analytics and machine learning are core areas of data science that use statistical and computational methods to model and predict data. Predictive modeling in healthcare helps to establish disease risk factors, evaluate treatment outcomes, and support medical decision-making. Research has looked at the use of algorithms such as Logistic Regression, Decision Trees, Random Forest, and Neural Networks for medical prediction. These models rely based on mathematical functions to model health indicator-disease co-occurrence relationships.
 
-This capstone adopts a **mixed-methods approach**, combining statistical
-rigor with practical interpretability. The methodology is divided into
-three stages:
+Logistic Regression, for example, uses a sigmoid function to model probability of binary outcome (disease or no disease), while Decision Trees and Random Forests provide rule-based approaches that divide the data into more manageable pieces. Healthcare machine learning also involves advanced notions like feature engineering, dimensionality reduction, and hyperparameter tuning, which improve the precision and effectiveness of prediction models. This project utilizes these principles to develop a data-intensive approach to predict heart disease risk using open-source medical data.
 
-1.  **Data Collection and Preprocessing**
-2.  **Application of Visualization Techniques** (grounded in
-    mathematical/statistical principles)
-3.  **Evaluation and Interpretation**
+#### Objective and Goals
 
-This structure ensures that visualization methods are both
-mathematically valid and practically useful for decision making.
+The main objective of the project is to develop a machine learning model to predict heart disease with high accuracy and interpretability. The study objectives are as follows: 1. To collect, preprocess, and analyze a publicly available heart disease dataset. 2. To apply various machine learning algorithms—Logistic Regression, Decision Tree, Random Forest, and Support Vector Machine (SVM)—and compare their performances. 3. To contrast models on the basis of statistical performance metrics such as accuracy, precision, recall, F1-score, and AUC. 4. To identify the most important health features for the prediction of heart disease. 5. To examine the practical implications of the results for the improvement of preventive healthcare practice.
 
-------------------------------------------------------------------------
+By achieving the above goals, the study will demonstrate how data-driven modeling can assist healthcare professionals in making informed clinical choices and improving patient results.
 
-#### 2. Data Sources and Preparation
+#### Summary of Approach
 
-Data will be obtained from open repositories such as Kaggle and World
-Bank datasets. The preprocessing steps include:
+This project follows a systematic machine learning pipeline right from data collection and preprocessing, to exploratory data analysis, feature selection, and model training. The research will use different classification algorithms and tune their parameters to provide the most predictive performance. The predictive performance of the models will be compared on key evaluation metrics. Visualizations will also be used to clarify model results and illustrate the impact of different features. The project combines statistical thinking, mathematical modeling, and computer science methodologies to create an integrated predictive framework for heart disease analysis.
 
--   **Handling Missing Data**: Mean/median imputation or multiple
-    imputation.
+### METHODS USED
 
--   **Normalization**:
+#### Data Acquisition and Sources
 
-$$x' = \frac{x - \min(x)}{\max(x) - \min(x)}$$
+The data set used in this project is Cleveland Heart Disease data set of the UCI Machine Learning Repository. It contains 303 patient records with 14 features such as age, sex, resting blood pressure, cholesterol, fasting blood sugar, maximum heart rate, and presence of heart disease. The target variable is indication of whether the patient has heart disease (1) or not (0).
 
--   **Standardization**: 
+Before using the data, preprocessing steps will include missing value management, numerical feature normalization, encoding categorical features (gender and chest pain type), and removal of outliers. Feature scaling methods like Min-Max normalization or StandardScaler will be used to place numerical variables in similar ranges to ensure stable model training. Data exploration through correlation matrices and visualization will be performed to gain insights into feature correlations.
 
-$$z = \frac{x - \mu}{\sigma}$$
-where $\mu$ is the mean and $\sigma$ the standard deviation.
+#### Mathematical and Statistical Models
 
--   **Dimensionality Reduction (PCA)**: Given a data matrix (X), PCA is
-    computed by eigenvalue decomposition of the covariance matrix: 
-    
-    $$C = \frac{1}{n-1}X^TX$$
-    
-    Eigenvectors of (C) provide principal
-    components, and eigenvalues indicate explained variance.
+Several supervised learning algorithms will be used to model the data. These include:
 
-------------------------------------------------------------------------
+-   **Logistic Regression:** A statistical model that predicts the probability of heart disease occurrence based on a linear combination of input features.
 
-#### 3. Visualization Techniques and Statistical Methods
+$$
+P(Y=1 \mid X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_n X_n)}}
+$$
 
-Visualization techniques will be selected based on data type and
-analytical goal. Each visualization is tied to a statistical foundation.
+-   **Decision Tree Classifier:** A model that splits data into branches using decision rules, allowing for simple interpretation.
 
-**3.1 Univariate Visualizations**
+$$
+G(S, A) = Entropy(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} \, Entropy(S_v)
+$$
 
--   **Histogram**: A histogram estimates the probability density
-    function using bins. For bin width (h),
-    
-    $$\hat{f}(x) = \frac{1}{nh} \sum_{i=1}^{n} K\left(\frac{x - x_i}{h}\right)$$
-where $K$ is a kernel (commonly uniform or Gaussian).
+-   **Random Forest:** An ensemble model that combines multiple decision trees to improve accuracy and reduce overfitting.
 
-    
--   **Boxplot**: Represents quartiles. Interquartile range (IQR): 
+$$
+\hat{y} = \text{majority\_vote}\left( h_1(x), h_2(x), \dots, h_k(x) \right)
+$$
 
-$$\text{IQR} = Q_3 - Q_1$$
+-   **Support Vector Machine (SVM):** A classification model that finds an optimal hyperplane separating patients with and without heart disease.
 
-------------------------------------------------------------------------
+$$
+\min_{w, b} \ \frac{1}{2} \|w\|^2 \quad \text{subject to} \quad y_i (w^T x_i + b) \ge 1, \ \forall i
+$$
 
-**3.2 Bivariate and Multivariate Visualizations**
+Each of these algorithms uses mathematical and statistical principles for pattern recognition. Logistic regression uses maximum likelihood estimation; Decision Trees rely on information gain and Gini impurity; SVMs use kernel functions to map nonlinear data. Model selection and hyperparameter tuning will be done through grid search or cross-validation techniques.
 
--   **Scatterplot with Regression Line**: The regression line is based
-    on the least squares estimate: 
-    
-    $$\hat{y} = \beta_0 + \beta_1 x$$
-with coefficients:
-$$\beta_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$$
-$$\beta_0 = \bar{y} - \beta_1 \bar{x}$$
-    
--   **Correlation Heatmap**: Correlation coefficient (Pearson): 
+#### ![](images/WhatsApp%20Image%202025-10-08%20at%2019.57.13.jpeg)Experimental Design or Analytical Procedures
 
-$$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$$
+The workflow for this project includes several analytical stages. The dataset will be divided into training and testing subsets using an 80/20 ratio. Model training will occur on the training subset, and model testing will evaluate generalization on unseen data. Cross-validation (k-fold) will be performed to ensure that model results are not due to random splits. The models’ performance will be compared using metrics such as Accuracy, Precision, Recall, F1-score, and Area Under the ROC Curve (AUC). Confusion matrices and ROC curves will be generated for visualization.\
 
+Feature importance will be analyzed to identify which attributes (such as cholesterol level, blood pressure, or age) contribute most significantly to predicting heart disease. Sensitivity analysis will also be performed to evaluate how small changes in inputs affect model predictions, ensuring robustness.\
+\
 
-*Table 1: Example Correlation Matrix*
+| Variable | Description | Type | Example Value |
+|----|----|----|----|
+| **age** | Age of the patient (in years) | Numeric | 54 |
+| **sex** | Gender of the patient (1 = male, 0 = female) | Categorical | 1 |
+| **cp** | Chest pain type (0–3, indicating severity/type) | Categorical | 2 |
+| **trestbps** | Resting blood pressure (mm Hg) | Numeric | 130 |
+| **chol** | Serum cholesterol level (mg/dl) | Numeric | 246 |
+| **thalach** | Maximum heart rate achieved | Numeric | 150 |
 
-| Variable | Var1  | Var2 | Var3  | Var4  |
-|----------|-------|------|-------|-------|
-| Var1     | 1     | 0.72 | 0.35  | -0.14 |
-| Var2     | 0.72  | 1    | 0.48  | 0.05  |
-| Var3     | 0.35  | 0.48 | 1     | -0.30 |
-| Var4     | -0.14 | 0.05 | -0.30 | 1     |
+#### Software and Tools
 
-------------------------------------------------------------------------
+All computations will be performed using Python. The libraries and tools used include:
 
-**3.3 Predictive and Inferential Visualizations**
+-   pandas and NumPy for data preprocessing and analysis,
+-   scikit-learn for machine learning algorithms and model evaluation,
+-   matplotlib and seaborn for visualization, and
+-   Jupyter Notebook as the development environment.
 
-ROC Curve:
+Data preprocessing, training, and evaluation will be done locally using standard computing resources. The software selection ensures flexibility, reproducibility, and transparency of the research workflow.
 
-True Positive Rate (TPR) and False Positive Rate (FPR):
-$$TPR = \frac{TP}{TP+FN}, \quad FPR = \frac{FP}{FP+TN}$$
+#### Ethical Considerations
 
-Area Under the Curve (AUC):
-
-$$AUC = \int_0^1 TPR(FPR^{-1}(x)) dx$$
-Confidence Interval Plot: For mean $\bar{x}$:
-$$CI = \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
-
-----------------------------------------------------------------------
-
-#### 4. Evaluation Criteria
-
-The effectiveness of visualizations will be assessed based on:
-
-| Criterion              | Measurement Method  | Example Metric             |
-|------------------------|---------------------|----------------------------|
-| Statistical Accuracy   | Error measures      | RMSE, AUC                  |
-| Interpretability       | User studies        | \% correct interpretations |
-| Decision-Making Impact | Simulated scenarios | Time to decision, accuracy |
-
-------------------------------------------------------------------------
-
-#### 5. Ethical Considerations
-
-Visualizations will follow ethical standards by avoiding misleading
-scales, selective data inclusion, and ambiguous color schemes.
-Transparency in preprocessing will be documented.
-
-------------------------------------------------------------------------
-
-#### 6. Summary
-
-This methodology integrates mathematical/statistical rigor with
-practical visualization design. By embedding formulas, structured
-evaluation, and reproducible methods, the project ensures visualization
-techniques are not only visually appealing but also statistically sound
-and decision-focused.
-
-### Programming: State your preferred programming language(s).
-
-**Tools and Software**
-
--   **Python**: Matplotlib, Seaborn, Plotly, Bokeh
--   **R**: ggplot2, Shiny, tidyverse
--   **Tableau/Power BI**: For applied dashboards
-
-### Data: List the dataset(s) you currently have (name, source, size, key variables, and how you will access/use them).
-
-**1. Diabetes Dataset**
-Name: Pima Indians Diabetes Database
-Source: UCI Machine Learning Repository / Kaggle
-Size: 768 observations, 9 variables
-Key Variables:
-Independent: Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes Pedigree Function, Age
-Dependent: Outcome (0 = No Diabetes, 1 = Diabetes)
-Access/Use: The dataset will be downloaded in CSV format from Kaggle. It will be used to demonstrate classification visualizations such as ROC curves, histograms, and boxplots for medical decision support.
-
-
-**2. World Development Indicators (WDI)**
-Name: World Bank Development Indicators
-Source: World Bank Open Data (https://data.worldbank.org)
-Size: Over 200 countries × 50+ years of data × 200+ indicators
-Key Variables: GDP per capita, Literacy Rate, Life Expectancy, Population Growth, Internet Users
-Access/Use: Accessed via the World Bank API. This dataset will support time-series visualizations, correlation plots, and comparative bar/line charts for global development analysis.
-
-
-**3. Titanic Dataset**
-Name: Titanic Passenger Survival Data
-Source: Kaggle (Titanic: Machine Learning from Disaster)
-Size: 891 observations, 12 variables
-Key Variables:
-Independent: Passenger Class, Sex, Age, Fare, Embarked, SibSp, Parch
-Dependent: Survival (0 = Did Not Survive, 1 = Survived)
-Access/Use: Downloaded in CSV format from Kaggle. This dataset will be used for categorical visualization techniques such as bar charts, mosaic plots, and logistic regression scatterplots.
-
-### References: Provide potential references (tentative is fine).
-
-### References
-
-1. Cleveland, W. S. (1993). *Visualizing Data*. Hobart Press.
-
-2. Tufte, E. R. (2001). *The Visual Display of Quantitative Information* (2nd ed.). Graphics Press.
-
-3. Friendly, M. (2008). A Brief History of Data Visualization. In *Handbook of Data Visualization* (pp. 15–56). Springer. [https://doi.org/10.1007/978-3-540-33037-0_2](https://doi.org/10.1007/978-3-540-33037-0_2)
-
-4. Few, S. (2012). *Show Me the Numbers: Designing Tables and Graphs to Enlighten*. Analytics Press.
-
-5. Wickham, H. (2016). *ggplot2: Elegant Graphics for Data Analysis*. Springer. [https://doi.org/10.1007/978-3-319-24277-4](https://doi.org/10.1007/978-3-319-24277-4)
-
-6. Han, J., Kamber, M., & Pei, J. (2012). *Data Mining: Concepts and Techniques* (3rd ed.). Morgan Kaufmann.
-
-7. Fawcett, T. (2006). An Introduction to ROC Analysis. *Pattern Recognition Letters*, 27(8), 861–874. [https://doi.org/10.1016/j.patrec.2005.10.010](https://doi.org/10.1016/j.patrec.2005.10.010)
-
-8. Kaggle. (2016). Titanic: Machine Learning from Disaster. [https://www.kaggle.com/c/titanic](https://www.kaggle.com/c/titanic)
-
-9. UCI Machine Learning Repository. (1990). Pima Indians Diabetes Database. [https://archive.ics.uci.edu/ml/datasets/diabetes](https://archive.ics.uci.edu/ml/datasets/diabetes)
-
-10. World Bank. (2023). World Development Indicators. [https://data.worldbank.org/indicator](https://data.worldbank.org/indicator)
-
-11. Shneiderman, B. (1996). The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations. *Proceedings 1996 IEEE Symposium on Visual Lang
-
+As the dataset is publicly available and fully anonymized, there are no direct ethical risks associated with privacy or patient confidentiality. However, care will be taken to ensure that the results are interpreted responsibly. The predictive models developed in this study are for educational and research purposes only and should not be used for real clinical diagnosis without professional validation. Additionally, ethical use of data includes acknowledging sources, avoiding bias in model design, and ensuring transparency in reporting results.
 
 ::: {align="right"}
 Madhu Kiran Reddy Koduru
