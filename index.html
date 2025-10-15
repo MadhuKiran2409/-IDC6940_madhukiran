@@ -106,8 +106,23 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="methods-used">METHODS USED</h3>
 <section id="data-acquisition-and-sources" class="level4">
 <h4 class="anchored" data-anchor-id="data-acquisition-and-sources">Data Acquisition and Sources</h4>
-<p>The data set used in this project is Cleveland Heart Disease data set of the UCI Machine Learning Repository. It contains 303 patient records with 14 features such as age, sex, resting blood pressure, cholesterol, fasting blood sugar, maximum heart rate, and presence of heart disease. The target variable is indication of whether the patient has heart disease (1) or not (0).</p>
-<p>Before using the data, preprocessing steps will include missing value management, numerical feature normalization, encoding categorical features (gender and chest pain type), and removal of outliers. Feature scaling methods like Min-Max normalization or StandardScaler will be used to place numerical variables in similar ranges to ensure stable model training. Data exploration through correlation matrices and visualization will be performed to gain insights into feature correlations.</p>
+<p>The dataset employed in this project is the&nbsp;Cleveland Heart Disease Dataset, obtained from the&nbsp;UCI Machine Learning Repository, a well-established open-source platform for research data. This dataset is among the most widely used benchmarks for heart disease prediction studies. It consists of&nbsp;303 patient records, each described by&nbsp;14 attributesrepresenting various clinical, physiological, and demographic parameters. These include features such as&nbsp;age,&nbsp;sex,&nbsp;resting blood pressure,&nbsp;serum cholesterol level,&nbsp;fasting blood sugar,&nbsp;maximum heart rate achieved,&nbsp;chest pain type,&nbsp;exercise-induced angina,&nbsp;ST depression induced by exercise, and&nbsp;resting electrocardiographic results, among others. The&nbsp;target variable&nbsp;indicates the presence (1) or absence (0) of heart disease in the patient.</p>
+<p>Prior to model development, several&nbsp;data preprocessing&nbsp;steps are performed to ensure data quality, consistency, and suitability for machine learning algorithms:</p>
+<ol type="1">
+<li><p><strong>Handling Missing Values:</strong><br>
+Any records containing missing or null values are identified and treated appropriately. Depending on the degree of missingness, imputation techniques such as mean, median, or mode substitution may be applied, or rows with excessive missing information may be removed to maintain data integrity.</p></li>
+<li><p><strong>Data Cleaning and Outlier Detection:</strong><br>
+Outliers in continuous variables (e.g., blood pressure, cholesterol, or heart rate) are detected using statistical techniques such as the Interquartile Range (IQR) method or z-score analysis. Identified outliers are examined for plausibility and either corrected or removed to prevent distortion in model training.</p></li>
+<li><p><strong>Encoding Categorical Variables:</strong><br>
+Categorical features, such as&nbsp;gender,&nbsp;chest pain type (cp),&nbsp;resting ECG results (restecg), and&nbsp;thalassemia (thal), are transformed into numerical form using&nbsp;label encoding&nbsp;or&nbsp;one-hot encoding, depending on the nature of the category. This step allows machine learning algorithms to interpret categorical information effectively.</p></li>
+<li><p><strong>Feature Scaling:</strong><br>
+To bring all numerical variables onto a comparable scale,&nbsp;feature scaling&nbsp;is applied using techniques such as&nbsp;Min–Max Normalization&nbsp;or&nbsp;Standardization (Z-score scaling). This process ensures that attributes with large numerical ranges (e.g., cholesterol or maximum heart rate) do not dominate model learning.</p></li>
+<li><p><strong>Data Splitting:</strong><br>
+The dataset is divided into&nbsp;training and testing subsets&nbsp;using an&nbsp;80:20 ratio, ensuring that model evaluation is conducted on unseen data to assess generalization performance. Additionally,&nbsp;k-fold cross-validation&nbsp;may be employed to enhance the reliability and stability of results.</p></li>
+<li><p><strong>Exploratory Data Analysis (EDA):</strong><br>
+Before model building, comprehensive EDA is conducted to understand the underlying data structure. Visualizations such as&nbsp;histograms,&nbsp;box plots, and&nbsp;pair plots&nbsp;are used to observe feature distributions, while&nbsp;correlation matrices&nbsp;and&nbsp;heatmaps&nbsp;help identify relationships among variables. This step provides valuable insights into which features are most strongly associated with heart disease occurrence.</p></li>
+</ol>
+<p>All preprocessing, exploration, and model development are performed using&nbsp;Python&nbsp;in the&nbsp;Jupyter Notebook environment, leveraging powerful libraries including&nbsp;pandas,&nbsp;NumPy,&nbsp;matplotlib, and&nbsp;seaborn&nbsp;for data manipulation and visualization. This structured and systematic approach ensures that the dataset is clean, well-prepared, and optimized for building robust predictive models.</p>
 </section>
 <section id="mathematical-and-statistical-models" class="level4">
 <h4 class="anchored" data-anchor-id="mathematical-and-statistical-models">Mathematical and Statistical Models</h4>
@@ -138,19 +153,21 @@ G(S, A) = Entropy(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} \, Entropy(S_v)
 \]</span></p>
 <p>Each of these algorithms uses mathematical and statistical principles for pattern recognition. Logistic regression uses maximum likelihood estimation; Decision Trees rely on information gain and Gini impurity; SVMs use kernel functions to map nonlinear data. Model selection and hyperparameter tuning will be done through grid search or cross-validation techniques.</p>
 </section>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"><img src="images/WhatsApp%20Image%202025-10-08%20at%2019.57.13.jpeg" class="img-fluid"></h4>
+</section>
 <section id="experimental-design-or-analytical-procedures" class="level4">
-<h4 class="anchored" data-anchor-id="experimental-design-or-analytical-procedures"><img src="images/WhatsApp%20Image%202025-10-08%20at%2019.57.13.jpeg" class="img-fluid">Experimental Design or Analytical Procedures</h4>
+<h4 class="anchored" data-anchor-id="experimental-design-or-analytical-procedures">Experimental Design or Analytical Procedures</h4>
 <p>The workflow for this project includes several analytical stages. The dataset will be divided into training and testing subsets using an 80/20 ratio. Model training will occur on the training subset, and model testing will evaluate generalization on unseen data. Cross-validation (k-fold) will be performed to ensure that model results are not due to random splits. The models’ performance will be compared using metrics such as Accuracy, Precision, Recall, F1-score, and Area Under the ROC Curve (AUC). Confusion matrices and ROC curves will be generated for visualization.<br>
 </p>
 <p>Feature importance will be analyzed to identify which attributes (such as cholesterol level, blood pressure, or age) contribute most significantly to predicting heart disease. Sensitivity analysis will also be performed to evaluate how small changes in inputs affect model predictions, ensuring robustness.<br>
-<br>
 </p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -200,8 +217,19 @@ G(S, A) = Entropy(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} \, Entropy(S_v)
 </tbody>
 </table>
 </section>
-<section id="software-and-tools" class="level4">
-<h4 class="anchored" data-anchor-id="software-and-tools">Software and Tools</h4>
+<section id="model-evaluation-metrics" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation-metrics">Model Evaluation Metrics</h4>
+<p>The performance of each machine learning model was assessed using multiple&nbsp;<strong>evaluation metrics</strong>, ensuring a balanced understanding of predictive ability and model reliability:</p>
+<ul>
+<li><p><strong>Accuracy</strong>&nbsp;– Overall proportion of correct predictions.</p></li>
+<li><p><strong>Precision</strong>&nbsp;– Fraction of correctly predicted positive cases among all predicted positives.</p></li>
+<li><p><strong>Recall (Sensitivity)</strong>&nbsp;– Fraction of actual positives correctly identified by the model.</p></li>
+<li><p><strong>F1-Score</strong>&nbsp;– Harmonic mean of precision and recall, balancing both metrics.</p></li>
+<li><p><strong>ROC Curve and AUC (Area Under the Curve)</strong>&nbsp;– Graphical and numerical measures of model discrimination ability.</p></li>
+</ul>
+<p>These metrics were used collectively to compare models and determine which algorithm performs best for heart disease prediction.<br>
+<br>
+Software and Tools</p>
 <p>All computations will be performed using Python. The libraries and tools used include:</p>
 <ul>
 <li>pandas and NumPy for data preprocessing and analysis,</li>
@@ -213,7 +241,9 @@ G(S, A) = Entropy(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} \, Entropy(S_v)
 </section>
 <section id="ethical-considerations" class="level4">
 <h4 class="anchored" data-anchor-id="ethical-considerations">Ethical Considerations</h4>
-<p>As the dataset is publicly available and fully anonymized, there are no direct ethical risks associated with privacy or patient confidentiality. However, care will be taken to ensure that the results are interpreted responsibly. The predictive models developed in this study are for educational and research purposes only and should not be used for real clinical diagnosis without professional validation. Additionally, ethical use of data includes acknowledging sources, avoiding bias in model design, and ensuring transparency in reporting results.</p>
+<p>Since the dataset used in this study is publicly available and fully anonymized, there are no direct ethical risks related to privacy or patient confidentiality. Nevertheless, the research will ensure responsible interpretation of results. The predictive models developed are intended solely for educational and research purposes and should not be applied to real-world clinical diagnosis without appropriate professional validation. Ethical research practice also involves proper acknowledgment of data sources, minimizing potential bias in model design, and maintaining transparency in the reporting of methods and results.<br>
+<br>
+</p>
 <div data-align="right">
 <p>Madhu Kiran Reddy Koduru</p>
 </div>
