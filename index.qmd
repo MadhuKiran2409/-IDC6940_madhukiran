@@ -103,7 +103,7 @@ Feature importance will be analyzed to identify which attributes (such as choles
 | **chol** | Serum cholesterol level (mg/dl) | Numeric | 246 |
 | **thalach** | Maximum heart rate achieved | Numeric | 150 |
 
-####  Model Evaluation Metrics
+#### Model Evaluation Metrics
 
 The performance of each machine learning model was assessed using multiple **evaluation metrics**, ensuring a balanced understanding of predictive ability and model reliability:
 
@@ -132,8 +132,48 @@ Data preprocessing, training, and evaluation will be done locally using standard
 
 #### Ethical Considerations
 
-Since the dataset used in this study is publicly available and fully anonymized, there are no direct ethical risks related to privacy or patient confidentiality. Nevertheless, the research will ensure responsible interpretation of results. The predictive models developed are intended solely for educational and research purposes and should not be applied to real-world clinical diagnosis without appropriate professional validation. Ethical research practice also involves proper acknowledgment of data sources, minimizing potential bias in model design, and maintaining transparency in the reporting of methods and results.\
-\
+Since the dataset used in this study is publicly available and fully anonymized, there are no direct ethical risks related to privacy or patient confidentiality. Nevertheless, the research will ensure responsible interpretation of results. The predictive models developed are intended solely for educational and research purposes and should not be applied to real-world clinical diagnosis without appropriate professional validation. Ethical research practice also involves proper acknowledgment of data sources, minimizing potential bias in model design, and maintaining transparency in the reporting of methods and results.
+
+### Results
+
+#### Presentation of Data
+
+The dataset consisted of 303 patient records with 14 clinical features, including age, sex, resting blood pressure, cholesterol, fasting blood sugar, maximum heart rate achieved, and others. The target variable, presence of heart disease, was binary (1 = disease, 0 = no disease).
+
+After preprocessing and ensuring all features were standardized, the dataset was split into 80% training and 20% testing subsets using stratified sampling. No missing values were present. Figure 1 shows the correlation heatmap between the numerical features and the target variable.
+
+Strong correlations were observed between maximum heart rate achieved (thalach) and the absence of heart disease, while chest pain type (cp) and ST depression (oldpeak) showed higher correlation with disease presence. Weak to moderate positive correlations existed between age, cholesterol, and presence of heart disease, aligning with known cardiovascular risk factors.
+
+![](images/Screenshot 2025-10-29 at 7.27.00 PM-01.png){fig-align="center" width="600"}
+
+#### Model Performance and Evaluation
+
+Four supervised learning models were trained and evaluated: Logistic Regression, Decision Tree, Random Forest, and Support Vector Machine (SVM). Model performance was assessed on accuracy, precision, recall, F1-score, and area under the ROC curve (AUC).
+
+Random Forest achieved the highest overall accuracy (90.16%) and AUC (0.956), outperforming other models in recall and balanced F1-score. The Logistic Regression model performed consistently well, with slightly lower accuracy but nearly identical AUC, demonstrating strong predictive power with interpretability advantages. The SVM achieved high recall but slightly reduced precision, while the Decision Tree model underperformed, likely due to overfitting on the small dataset. Figure 2 presents the ROC curves for all models, confirming the superior discriminative performance of Random Forest and Logistic Regression. Figure 3 shows the confusion matrices, illustrating that Random Forest had the fewest false negatives, which is clinically significant since minimizing missed cases of heart disease is critical.
+
+![](images/Screenshot 2025-10-29 at 7.34.03 PM-02.png){fig-align="center" width="500"}
+
+![](images/Screenshot 2025-10-29 at 7.34.12 PM-01.png){fig-align="center" width="400"}
+
+| Model               | Accuracy | Precision | Recall | F1-score | AUC    |
+|---------------------|----------|-----------|--------|----------|--------|
+| Random Forest       | 0.9016   | 0.8438    | 0.9643 | 0.9000   | 0.9556 |
+| Logistic Regression | 0.8689   | 0.8125    | 0.9286 | 0.8667   | 0.9535 |
+| SVM                 | 0.8525   | 0.8065    | 0.8929 | 0.8475   | 0.9475 |
+| Decision Tree       | 0.7213   | 0.6571    | 0.8214 | 0.7302   | 0.7289 |
+
+#### Comparison with Expected Outcomes
+
+The results are consistent with expectations and prior research indicating that ensemble models such as Random Forest typically outperform single classifiers in medical prediction tasks due to their robustness and reduced variance. Logistic Regression was expected to perform well given the linear nature of many health risk relationships, and it did. The lower performance of the Decision Tree model was anticipated due to its sensitivity to small data variations.
+
+#### Limitations of the Results
+
+Although the models achieved high predictive accuracy, several limitations should be acknowledged: The dataset contained only 303 samples, which limits generalizability to larger or more diverse populations. The data were sourced from a single site (Cleveland Clinic Foundation), meaning demographic or regional differences were not accounted for. Certain models, particularly Decision Tree and SVM, may be sensitive to feature scaling and class distribution. External validation using an independent dataset was not performed, so real-world performance remains untested. Future work should focus on expanding dataset diversity, performing external validation, and integrating explainable AI (XAI) methods (e.g., SHAP, LIME) for deeper clinical interpretability.
+
+#### Summary of Findings
+
+In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.
 
 ::: {align="right"}
 Madhu Kiran Reddy Koduru
