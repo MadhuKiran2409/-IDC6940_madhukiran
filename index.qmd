@@ -144,7 +144,7 @@ After preprocessing and ensuring all features were standardized, the dataset was
 
 Strong correlations were observed between maximum heart rate achieved (thalach) and the absence of heart disease, while chest pain type (cp) and ST depression (oldpeak) showed higher correlation with disease presence. Weak to moderate positive correlations existed between age, cholesterol, and presence of heart disease, aligning with known cardiovascular risk factors.
 
-![](images/Screenshot 2025-10-29 at 7.27.00 PM-01.png){fig-align="center" width="600"}
+![](images/Screenshot 2025-10-29 at 7.27.00 PM-02.png){fig-align="center"}
 
 #### Model Performance and Evaluation
 
@@ -152,9 +152,9 @@ Four supervised learning models were trained and evaluated: Logistic Regression,
 
 Random Forest achieved the highest overall accuracy (90.16%) and AUC (0.956), outperforming other models in recall and balanced F1-score. The Logistic Regression model performed consistently well, with slightly lower accuracy but nearly identical AUC, demonstrating strong predictive power with interpretability advantages. The SVM achieved high recall but slightly reduced precision, while the Decision Tree model underperformed, likely due to overfitting on the small dataset. Figure 2 presents the ROC curves for all models, confirming the superior discriminative performance of Random Forest and Logistic Regression. Figure 3 shows the confusion matrices, illustrating that Random Forest had the fewest false negatives, which is clinically significant since minimizing missed cases of heart disease is critical.
 
-![](images/Screenshot 2025-10-29 at 7.34.03 PM-02.png){fig-align="center" width="500"}
+![](images/Screenshot%202025-10-29%20at%207.34.03%20PM-02.png){fig-align="center" width="500"}
 
-![](images/Screenshot 2025-10-29 at 7.34.12 PM-01.png){fig-align="center" width="400"}
+![](images/Screenshot%202025-10-29%20at%207.34.12%20PM-01.png){fig-align="center" width="400"}
 
 | Model               | Accuracy | Precision | Recall | F1-score | AUC    |
 |---------------------|----------|-----------|--------|----------|--------|
