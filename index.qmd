@@ -95,7 +95,7 @@ The workflow for this project includes several analytical stages. The dataset wi
 Feature importance will be analyzed to identify which attributes (such as cholesterol level, blood pressure, or age) contribute most significantly to predicting heart disease. Sensitivity analysis will also be performed to evaluate how small changes in inputs affect model predictions, ensuring robustness.\
 
 | Variable | Description | Type | Example Value |
-|------------------|------------------|------------------|-------------------|
+|----|----|----|----|
 | **age** | Age of the patient (in years) | Numeric | 54 |
 | **sex** | Gender of the patient (1 = male, 0 = female) | Categorical | 1 |
 | **cp** | Chest pain type (0–3, indicating severity/type) | Categorical | 2 |
@@ -165,28 +165,21 @@ Random Forest achieved the highest overall accuracy (90.16%) and AUC (0.956), ou
 
 The results are consistent with expectations and prior research indicating that ensemble models such as Random Forest typically outperform single classifiers in medical prediction tasks due to their robustness and reduced variance. Logistic Regression was expected to perform well given the linear nature of many health risk relationships, and it did. The lower performance of the Decision Tree model was anticipated due to its sensitivity to small data variations.
 
-#### ![](images/3.png)  Limitations of the Results
+#### ![](images/3.png) Limitations of the Results
 
 Although the models achieved high predictive accuracy, several limitations should be acknowledged: The dataset contained only 303 samples, which limits generalizability to larger or more diverse populations. The data were sourced from a single site (Cleveland Clinic Foundation), meaning demographic or regional differences were not accounted for. Certain models, particularly Decision Tree and SVM, may be sensitive to feature scaling and class distribution. External validation using an independent dataset was not performed, so real-world performance remains untested. Future work should focus on expanding dataset diversity, performing external validation, and integrating explainable AI (XAI) methods (e.g., SHAP, LIME) for deeper clinical interpretability.
 
 #### Summary of Findings
 
 In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.\
-\
-\
+
 ### Conclusion
 
 The results of this study demonstrate that machine learning models can effectively predict the presence of heart disease using clinical and demographic features from the Cleveland Heart Disease dataset. Among the evaluated models—Logistic Regression, Decision Tree, Random Forest, and Support Vector Machine—the Random Forest classifier consistently delivered the strongest overall performance, achieving the highest accuracy (90.16%) and AUC (0.9556). This suggests that ensemble-based methods offer superior robustness and generalization for medical prediction tasks compared to single-tree or purely linear models.
 
-The feature importance analysis further revealed that variables such as chest pain type, maximum heart rate, ST depression, resting blood pressure, and age play a central role in determining heart disease risk. These findings align closely with established clinical knowledge, reinforcing the validity of the machine learning outcomes and demonstrating the capacity of data-driven models to capture meaningful health patterns.
-From a methodological perspective, the analysis confirms earlier observations in the literature:
-Ensemble models like Random Forest tend to outperform simpler models through variance reduction and improved stability.
-Logistic Regression remains a strong baseline model due to its interpretability and reliable performance, making it suitable for clinical settings where explainability is critical.
-Single Decision Trees are often prone to overfitting, particularly on small datasets, which was reflected in their comparatively lower performance.
+The feature importance analysis further revealed that variables such as chest pain type, maximum heart rate, ST depression, resting blood pressure, and age play a central role in determining heart disease risk. These findings align closely with established clinical knowledge, reinforcing the validity of the machine learning outcomes and demonstrating the capacity of data-driven models to capture meaningful health patterns. From a methodological perspective, the analysis confirms earlier observations in the literature: Ensemble models like Random Forest tend to outperform simpler models through variance reduction and improved stability. Logistic Regression remains a strong baseline model due to its interpretability and reliable performance, making it suitable for clinical settings where explainability is critical. Single Decision Trees are often prone to overfitting, particularly on small datasets, which was reflected in their comparatively lower performance.
 
-SVM models, although effective, require careful tuning and may be sensitive to the scale and distribution of features.
-Despite promising results, several limitations must be acknowledged. The dataset size (303 patients) limits the generalizability of the findings, and the single-site source restricts demographic diversity. Additionally, although the models achieved strong predictive performance, they were not externally validated on independent datasets, which is essential for clinical deployment. Future research should incorporate larger, more diverse datasets and employ cross-dataset validation techniques to enhance external validity. Integrating explainable artificial intelligence (XAI) methods—such as SHAP or LIME—would further strengthen clinical interpretability and trust in model recommendations.
-Overall, this study supports the growing body of literature demonstrating the value of machine learning in healthcare, particularly for early disease detection and risk stratification. With proper validation, refinement, and ethical considerations, predictive analytics can significantly augment clinical decision-making and enable more proactive, data-informed healthcare practices.
+SVM models, although effective, require careful tuning and may be sensitive to the scale and distribution of features. Despite promising results, several limitations must be acknowledged. The dataset size (303 patients) limits the generalizability of the findings, and the single-site source restricts demographic diversity. Additionally, although the models achieved strong predictive performance, they were not externally validated on independent datasets, which is essential for clinical deployment. Future research should incorporate larger, more diverse datasets and employ cross-dataset validation techniques to enhance external validity. Integrating explainable artificial intelligence (XAI) methods—such as SHAP or LIME—would further strengthen clinical interpretability and trust in model recommendations. Overall, this study supports the growing body of literature demonstrating the value of machine learning in healthcare, particularly for early disease detection and risk stratification. With proper validation, refinement, and ethical considerations, predictive analytics can significantly augment clinical decision-making and enable more proactive, data-informed healthcare practices.
 
 ::: {align="right"}
 Madhu Kiran Reddy Koduru

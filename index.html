@@ -164,10 +164,10 @@ G(S, A) = Entropy(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} \, Entropy(S_v)
 </p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -325,16 +325,17 @@ Software and Tools</p>
 <section id="summary-of-findings" class="level4">
 <h4 class="anchored" data-anchor-id="summary-of-findings">Summary of Findings</h4>
 <p>In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.<br>
-<br>
-<br>
-### Conclusion</p>
+</p>
+</section>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <p>The results of this study demonstrate that machine learning models can effectively predict the presence of heart disease using clinical and demographic features from the Cleveland Heart Disease dataset. Among the evaluated models—Logistic Regression, Decision Tree, Random Forest, and Support Vector Machine—the Random Forest classifier consistently delivered the strongest overall performance, achieving the highest accuracy (90.16%) and AUC (0.9556). This suggests that ensemble-based methods offer superior robustness and generalization for medical prediction tasks compared to single-tree or purely linear models.</p>
 <p>The feature importance analysis further revealed that variables such as chest pain type, maximum heart rate, ST depression, resting blood pressure, and age play a central role in determining heart disease risk. These findings align closely with established clinical knowledge, reinforcing the validity of the machine learning outcomes and demonstrating the capacity of data-driven models to capture meaningful health patterns. From a methodological perspective, the analysis confirms earlier observations in the literature: Ensemble models like Random Forest tend to outperform simpler models through variance reduction and improved stability. Logistic Regression remains a strong baseline model due to its interpretability and reliable performance, making it suitable for clinical settings where explainability is critical. Single Decision Trees are often prone to overfitting, particularly on small datasets, which was reflected in their comparatively lower performance.</p>
 <p>SVM models, although effective, require careful tuning and may be sensitive to the scale and distribution of features. Despite promising results, several limitations must be acknowledged. The dataset size (303 patients) limits the generalizability of the findings, and the single-site source restricts demographic diversity. Additionally, although the models achieved strong predictive performance, they were not externally validated on independent datasets, which is essential for clinical deployment. Future research should incorporate larger, more diverse datasets and employ cross-dataset validation techniques to enhance external validity. Integrating explainable artificial intelligence (XAI) methods—such as SHAP or LIME—would further strengthen clinical interpretability and trust in model recommendations. Overall, this study supports the growing body of literature demonstrating the value of machine learning in healthcare, particularly for early disease detection and risk stratification. With proper validation, refinement, and ethical considerations, predictive analytics can significantly augment clinical decision-making and enable more proactive, data-informed healthcare practices.</p>
 <div data-align="right">
 <p>Madhu Kiran Reddy Koduru</p>
 </div>
-</section>
 </section>
 </section>
 </section>
