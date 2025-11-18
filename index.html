@@ -250,27 +250,14 @@ Software and Tools</p>
 <h4 class="anchored" data-anchor-id="presentation-of-data">Presentation of Data</h4>
 <p>The dataset consisted of 303 patient records with 14 clinical features, including age, sex, resting blood pressure, cholesterol, fasting blood sugar, maximum heart rate achieved, and others. The target variable, presence of heart disease, was binary (1 = disease, 0 = no disease).</p>
 <p>After preprocessing and ensuring all features were standardized, the dataset was split into 80% training and 20% testing subsets using stratified sampling. No missing values were present. Figure 1 shows the correlation heatmap between the numerical features and the target variable.</p>
-<p>Strong correlations were observed between maximum heart rate achieved (thalach) and the absence of heart disease, while chest pain type (cp) and ST depression (oldpeak) showed higher correlation with disease presence. Weak to moderate positive correlations existed between age, cholesterol, and presence of heart disease, aligning with known cardiovascular risk factors.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Screenshot%202025-10-29%20at%207.27.00%20PM-02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
+<p>Strong correlations were observed between maximum heart rate achieved (thalach) and the absence of heart disease, while chest pain type (cp) and ST depression (oldpeak) showed higher correlation with disease presence. Weak to moderate positive correlations existed between age, cholesterol, and presence of heart disease, aligning with known cardiovascular risk factors.<br>
+<br>
+<img src="images/1.png" class="img-fluid"></p>
 </section>
 <section id="model-performance-and-evaluation" class="level4">
 <h4 class="anchored" data-anchor-id="model-performance-and-evaluation">Model Performance and Evaluation</h4>
 <p>Four supervised learning models were trained and evaluated: Logistic Regression, Decision Tree, Random Forest, and Support Vector Machine (SVM). Model performance was assessed on accuracy, precision, recall, F1-score, and area under the ROC curve (AUC).</p>
 <p>Random Forest achieved the highest overall accuracy (90.16%) and AUC (0.956), outperforming other models in recall and balanced F1-score. The Logistic Regression model performed consistently well, with slightly lower accuracy but nearly identical AUC, demonstrating strong predictive power with interpretability advantages. The SVM achieved high recall but slightly reduced precision, while the Decision Tree model underperformed, likely due to overfitting on the small dataset. Figure 2 presents the ROC curves for all models, confirming the superior discriminative performance of Random Forest and Logistic Regression. Figure 3 shows the confusion matrices, illustrating that Random Forest had the fewest false negatives, which is clinically significant since minimizing missed cases of heart disease is critical.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Screenshot%202025-10-29%20at%207.34.03%20PM-02.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Screenshot%202025-10-29%20at%207.34.12%20PM-01.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 30%">
@@ -325,18 +312,25 @@ Software and Tools</p>
 </tr>
 </tbody>
 </table>
+<p><img src="images/2.png" class="img-fluid"></p>
 </section>
 <section id="comparison-with-expected-outcomes" class="level4">
 <h4 class="anchored" data-anchor-id="comparison-with-expected-outcomes">Comparison with Expected Outcomes</h4>
 <p>The results are consistent with expectations and prior research indicating that ensemble models such as Random Forest typically outperform single classifiers in medical prediction tasks due to their robustness and reduced variance. Logistic Regression was expected to perform well given the linear nature of many health risk relationships, and it did. The lower performance of the Decision Tree model was anticipated due to its sensitivity to small data variations.</p>
 </section>
 <section id="limitations-of-the-results" class="level4">
-<h4 class="anchored" data-anchor-id="limitations-of-the-results">Limitations of the Results</h4>
+<h4 class="anchored" data-anchor-id="limitations-of-the-results"><img src="images/3.png" class="img-fluid"> Limitations of the Results</h4>
 <p>Although the models achieved high predictive accuracy, several limitations should be acknowledged: The dataset contained only 303 samples, which limits generalizability to larger or more diverse populations. The data were sourced from a single site (Cleveland Clinic Foundation), meaning demographic or regional differences were not accounted for. Certain models, particularly Decision Tree and SVM, may be sensitive to feature scaling and class distribution. External validation using an independent dataset was not performed, so real-world performance remains untested. Future work should focus on expanding dataset diversity, performing external validation, and integrating explainable AI (XAI) methods (e.g., SHAP, LIME) for deeper clinical interpretability.</p>
 </section>
 <section id="summary-of-findings" class="level4">
 <h4 class="anchored" data-anchor-id="summary-of-findings">Summary of Findings</h4>
-<p>In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.</p>
+<p>In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.<br>
+<br>
+<br>
+### Conclusion</p>
+<p>The results of this study demonstrate that machine learning models can effectively predict the presence of heart disease using clinical and demographic features from the Cleveland Heart Disease dataset. Among the evaluated models—Logistic Regression, Decision Tree, Random Forest, and Support Vector Machine—the Random Forest classifier consistently delivered the strongest overall performance, achieving the highest accuracy (90.16%) and AUC (0.9556). This suggests that ensemble-based methods offer superior robustness and generalization for medical prediction tasks compared to single-tree or purely linear models.</p>
+<p>The feature importance analysis further revealed that variables such as chest pain type, maximum heart rate, ST depression, resting blood pressure, and age play a central role in determining heart disease risk. These findings align closely with established clinical knowledge, reinforcing the validity of the machine learning outcomes and demonstrating the capacity of data-driven models to capture meaningful health patterns. From a methodological perspective, the analysis confirms earlier observations in the literature: Ensemble models like Random Forest tend to outperform simpler models through variance reduction and improved stability. Logistic Regression remains a strong baseline model due to its interpretability and reliable performance, making it suitable for clinical settings where explainability is critical. Single Decision Trees are often prone to overfitting, particularly on small datasets, which was reflected in their comparatively lower performance.</p>
+<p>SVM models, although effective, require careful tuning and may be sensitive to the scale and distribution of features. Despite promising results, several limitations must be acknowledged. The dataset size (303 patients) limits the generalizability of the findings, and the single-site source restricts demographic diversity. Additionally, although the models achieved strong predictive performance, they were not externally validated on independent datasets, which is essential for clinical deployment. Future research should incorporate larger, more diverse datasets and employ cross-dataset validation techniques to enhance external validity. Integrating explainable artificial intelligence (XAI) methods—such as SHAP or LIME—would further strengthen clinical interpretability and trust in model recommendations. Overall, this study supports the growing body of literature demonstrating the value of machine learning in healthcare, particularly for early disease detection and risk stratification. With proper validation, refinement, and ethical considerations, predictive analytics can significantly augment clinical decision-making and enable more proactive, data-informed healthcare practices.</p>
 <div data-align="right">
 <p>Madhu Kiran Reddy Koduru</p>
 </div>
