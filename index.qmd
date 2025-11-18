@@ -95,7 +95,7 @@ The workflow for this project includes several analytical stages. The dataset wi
 Feature importance will be analyzed to identify which attributes (such as cholesterol level, blood pressure, or age) contribute most significantly to predicting heart disease. Sensitivity analysis will also be performed to evaluate how small changes in inputs affect model predictions, ensuring robustness.\
 
 | Variable | Description | Type | Example Value |
-|----|----|----|----|
+|------------------|------------------|------------------|-------------------|
 | **age** | Age of the patient (in years) | Numeric | 54 |
 | **sex** | Gender of the patient (1 = male, 0 = female) | Categorical | 1 |
 | **cp** | Chest pain type (0–3, indicating severity/type) | Categorical | 2 |
@@ -171,7 +171,7 @@ Although the models achieved high predictive accuracy, several limitations shoul
 
 #### Summary of Findings
 
-In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.\
+In summary, the machine learning models demonstrated strong predictive capability for identifying heart disease. Random Forest emerged as the most effective model, achieving 90.16% accuracy and AUC = 0.956, while Logistic Regression provided a nearly equivalent, more interpretable alternative. The most significant predictors were chest pain type, maximum heart rate, ST depression, blood pressure, and age — variables that align with established cardiovascular risk factors. These findings confirm that data-driven predictive models can substantially enhance early heart disease detection and support medical decision-making when applied responsibly and validated clinically.
 
 ### Conclusion
 
